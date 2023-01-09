@@ -1,7 +1,7 @@
 version: "3"
 services:
   postgres:
-    image: library/postgres:13
+    image: library/postgres:15
     container_name: db
     restart: on-failure
     environment:
@@ -22,6 +22,8 @@ services:
       - "6379:6379"
 
   bonus:
+    platform: linux/amd64
+    image: lnq99/rsoi-2022-bonus:1.0
     container_name: bonus
     build:
       context: src/bonus
@@ -32,6 +34,8 @@ services:
       - "8050:8050"
 
   flight:
+    platform: linux/amd64
+    image: lnq99/rsoi-2022-flight:1.0
     container_name: flight
     build:
       context: src/flight
@@ -42,6 +46,8 @@ services:
       - "8060:8060"
 
   ticket:
+    platform: linux/amd64
+    image: lnq99/rsoi-2022-ticket:1.0
     container_name: ticket
     build:
       context: src/ticket
@@ -52,6 +58,8 @@ services:
       - "8070:8070"
 
   gateway:
+    platform: linux/amd64
+    image: lnq99/rsoi-2022-gateway:1.0
     container_name: gateway
     build:
       context: src/gateway
